@@ -97,7 +97,7 @@ END GL_PInsertarDetalleEnvio;
 
 
 CREATE
-OR REPLACE PROCEDURE GL_PInsertarDetalleEnvioTemp (
+OR REPLACE PROCEDURE GL_PInsertarDetalleEnvioTempD (
     p_ENVDT_PROD_ID_init IN NUMBER,
     p_ENVDT_CANTIDAD_init IN NUMBER,
     p_ENVDT_PRECIO_init IN NUMBER,
@@ -132,7 +132,7 @@ OR REPLACE PROCEDURE GL_PInsertarDetalleEnvioTemp (
 	ENVDT_CANTIDAD,
 	ENVDT_PRECIO ,
 	ENVDT_TOTAL,
-	ENVDT_IDP
+	ENVDT_ID
 	) 
 values(
 p_ENVDT_PROD_ID_init,
@@ -148,7 +148,7 @@ EXCEPTION
     WHEN OTHERS THEN DBMS_OUTPUT.PUT_LINE('ERROR');
 DBMS_OUTPUT.PUT_LINE('CODIGO : -1');
 RAISE;
-END GL_PInsertarDetalleEnvioTemp;
+END GL_PInsertarDetalleEnvioTempD;
 /
 
 

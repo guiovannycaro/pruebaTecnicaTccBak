@@ -44,7 +44,6 @@ END GL_PListarDetalleEnvioTemp;
 
 
 
-
 CREATE
 OR REPLACE PROCEDURE GL_PInsertarDetalleEnvioTemp (
     p_ENVDT_PROD_ID_init IN NUMBER,
@@ -77,10 +76,10 @@ OR REPLACE PROCEDURE GL_PInsertarDetalleEnvioTemp (
   
 	
 	insert into SCH_CN.GL_TDETALLEENVIO(
-    ENVD_PROD_ID ,
-	ENVD_CANTIDAD,
-	ENVD_PRECIO ,
-	ENVD_TOTAL,
+    ENVDT_PROD_ID ,
+	ENVDT_CANTIDAD,
+	ENVDT_PRECIO ,
+	ENVDT_TOTAL,
 	ENVD_ENV_ID
 	) 
 values(
@@ -279,9 +278,8 @@ OUT_CURSOR OUT SYS_REFCURSOR
      FROM
        SCH_CN.GL_TDETALLEENVIOTEMP
 	   WHERE
-         ENVDT_ID = p_codigo_init
-     ORDER BY
-       SCH_CN.GL_TDETALLEENVIOTEMP.ENVDT_ID;
+         ENVDT_ID = p_codigo_init;
+   
 	   
 EXCEPTION
   WHEN OTHERS THEN DBMS_OUTPUT.PUT_LINE('ERROR');

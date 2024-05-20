@@ -25,11 +25,11 @@ public class DetalleEnvioControllerTempDao implements DeralleEnvioTempinterfaceD
 		ProcedureUtil.executeSelectGestion("GL_PListarDetalleEnvioTemp", parameters, resultSet -> {
 			while (resultSet.next()) {
 				DetalleEnvioTemp datos = new DetalleEnvioTemp();
-				datos.setENVDT_PROD_ID(resultSet.getInt(1));
-				datos.setENVDT_CANTIDAD(resultSet.getInt(2));	
-				datos.setENVDT_PRECIO(resultSet.getInt(3));		
-				datos.setENVDT_TOTAL(resultSet.getInt(4));	
-				datos.setENVDT_ID(resultSet.getInt(5));	
+				datos.setENVDT_PROD_ID(resultSet.getString(1));
+				datos.setENVDT_CANTIDAD(resultSet.getString(2));	
+				datos.setENVDT_PRECIO(resultSet.getString(3));		
+				datos.setENVDT_TOTAL(resultSet.getString(4));	
+				datos.setENVDT_ID(resultSet.getString(5));	
 				datos.setENVDT_IDP(resultSet.getInt(6));	
 			
 				listadetallee.add(datos);
@@ -55,7 +55,7 @@ System.err.println("viene front " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV
 		
 		String[] parameters = { ""+cli.getDATENV_ID(),""+cli.getDATENV_CANTIDAD(),""+p.getPROD_VALOR(),""+total,""+cli.getDATENV_REF()};
 		
-		ProcedureUtil.executeUpdateGestion("GL_PInsertarDetalleEnvioTemp", parameters);
+		ProcedureUtil.executeUpdateGestion("GL_PInsertarDetalleEnvioTempD", parameters);
 		return "{\"codigo\":\"200\",\"mensaje\":\"Mensaje Informativo\",\"descripcion\":\"El registro fue ingresado De Manera Correcta\"}";
 	}
 	
@@ -79,11 +79,11 @@ System.err.println("viene front " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV
 			String[] parameters = { ""+cli.getENVDT_PROD_ID() };
 			ProcedureUtil.executeSelectGestion("GL_PBuscarDetalleEnvioTempProducto", parameters, resultSet -> {
 				while (resultSet.next()) {
-					datos.setENVDT_PROD_ID(resultSet.getInt(1));
-					datos.setENVDT_CANTIDAD(resultSet.getInt(2));	
-					datos.setENVDT_PRECIO(resultSet.getInt(3));		
-					datos.setENVDT_TOTAL(resultSet.getInt(4));	
-					datos.setENVDT_ID(resultSet.getInt(5));	
+					datos.setENVDT_PROD_ID(resultSet.getString(1));
+					datos.setENVDT_CANTIDAD(resultSet.getString(2));	
+					datos.setENVDT_PRECIO(resultSet.getString(3));		
+					datos.setENVDT_TOTAL(resultSet.getString(4));	
+					datos.setENVDT_ID(resultSet.getString(5));	
 					datos.setENVDT_IDP(resultSet.getInt(6));	
 				}
 			});
@@ -97,11 +97,11 @@ System.err.println("viene front " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV
 			String[] parameters = { ""+cli };
 			ProcedureUtil.executeSelectGestion("GL_PBuscarDetalleEnvioTempId", parameters, resultSet -> {
 				while (resultSet.next()) {
-					datos.setENVDT_PROD_ID(resultSet.getInt(1));
-					datos.setENVDT_CANTIDAD(resultSet.getInt(2));	
-					datos.setENVDT_PRECIO(resultSet.getInt(3));		
-					datos.setENVDT_TOTAL(resultSet.getInt(4));	
-					datos.setENVDT_ID(resultSet.getInt(5));	
+					datos.setENVDT_PROD_ID(resultSet.getString(1));
+					datos.setENVDT_CANTIDAD(resultSet.getString(2));	
+					datos.setENVDT_PRECIO(resultSet.getString(3));		
+					datos.setENVDT_TOTAL(resultSet.getString(4));	
+					datos.setENVDT_ID(resultSet.getString(5));	
 					datos.setENVDT_IDP(resultSet.getInt(6));	
 					listadetallee.add(datos);
 				}
