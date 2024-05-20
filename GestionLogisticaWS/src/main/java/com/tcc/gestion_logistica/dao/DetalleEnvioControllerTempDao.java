@@ -45,7 +45,7 @@ public class DetalleEnvioControllerTempDao implements DeralleEnvioTempinterfaceD
 		ProductoControllerDao pr = new ProductoControllerDao();
         
 		Productos p = pr.buscarProductoXId(cli.getDATENV_ID());
-		System.err.println("viene front " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV_CANTIDAD() + " " +p.getPROD_VALOR());
+		System.err.println("viene front crear detalle envio " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV_CANTIDAD() + " " +p.getPROD_VALOR());
 		
 		int total = Integer.parseInt(p.getPROD_VALOR()) * cli.getDATENV_CANTIDAD();
 		

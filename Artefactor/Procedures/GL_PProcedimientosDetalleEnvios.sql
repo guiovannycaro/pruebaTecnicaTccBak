@@ -95,12 +95,14 @@ END GL_PInsertarDetalleEnvio;
 /
 
 
+
 CREATE
 OR REPLACE PROCEDURE GL_PInsertarDetalleEnvioTemp (
-    p_ENVD_PROD_ID_init IN VARCHAR2,
-    p_ENVD_CANTIDAD_init IN VARCHAR2,
-    p_ENVD_PRECIO_init IN VARCHAR2,
-	 p_total_init IN VARCHAR2
+    p_ENVDT_PROD_ID_init IN NUMBER,
+    p_ENVDT_CANTIDAD_init IN NUMBER,
+    p_ENVDT_PRECIO_init IN NUMBER,
+    p_ENVDT_TOTAL_init IN NUMBER,
+	p_DATENV_REF_init IN  VARCHAR2
 ) AS BEGIN
  --
   --
@@ -125,8 +127,19 @@ OR REPLACE PROCEDURE GL_PInsertarDetalleEnvioTemp (
     --
   
 	
-	insert into SCH_CN.GL_TDETALLEENVIO(ENVD_PROD_ID,ENVD_CANTIDAD,ENVD_PRECIO,ENVD_TOTAL) 
-values(p_ENVD_PROD_ID_init,p_ENVD_CANTIDAD_init,p_ENVD_PRECIO_init,p_total_init);
+	insert into SCH_CN.GL_TDETALLEENVIOTEMP(
+    ENVDT_PROD_ID ,
+	ENVDT_CANTIDAD,
+	ENVDT_PRECIO ,
+	ENVDT_TOTAL,
+	ENVDT_IDP
+	) 
+values(
+p_ENVDT_PROD_ID_init,
+p_ENVDT_CANTIDAD_init,
+p_ENVDT_PRECIO_init,
+p_ENVDT_TOTAL_init,
+p_DATENV_REF_init);
 	
 	
      

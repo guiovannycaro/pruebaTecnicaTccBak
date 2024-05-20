@@ -81,6 +81,7 @@ public class DetalleEnvioController {
 	public String crearDetalleEnvio(
 			@RequestBody DatosEnvio cliente) {
 		try {
+			System.out.println("cliente " + cliente.getDATENV_ID() + " "+ cliente.getDATENV_CANTIDAD() + " " + cliente.getDATENV_REF());
 			DetalleEnvioControllerDao servicioCliente = new DetalleEnvioControllerDao();
 			return servicioCliente.crearDetalleEnvio(cliente);
 		} catch (Exception e) {

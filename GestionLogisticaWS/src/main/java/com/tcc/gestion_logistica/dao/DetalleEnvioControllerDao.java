@@ -52,9 +52,13 @@ public class DetalleEnvioControllerDao implements DeralleEnviointerfaceDao{
 		
 		int total = Integer.parseInt(p.getPROD_VALOR()) * cli.getDATENV_CANTIDAD();
 		
-		System.err.println("viene front 2 " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV_CANTIDAD() + " " +p.getPROD_VALOR() + " " +total ) ;
+		System.err.println("viene front 2 " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV_CANTIDAD() + " " +p.getPROD_VALOR() + " " +total + " "+cli.getDATENV_REF()) ;
 		
-		String[] parameters = { ""+cli.getDATENV_ID(),""+cli.getDATENV_CANTIDAD(),""+p.getPROD_VALOR(),  ""+total};
+		String[] parameters = { ""+cli.getDATENV_ID(),
+				""+cli.getDATENV_CANTIDAD(),
+				""+p.getPROD_VALOR(),
+				""+total ,
+				""+cli.getDATENV_REF()};
 		ProcedureUtil.executeUpdateGestion("GL_PInsertarDetalleEnvioTemp", parameters);
 		return "{\"codigo\":\"200\",\"mensaje\":\"Mensaje Informativo\",\"descripcion\":\"El registro fue ingresado De Manera Correcta\"}";
 	}
