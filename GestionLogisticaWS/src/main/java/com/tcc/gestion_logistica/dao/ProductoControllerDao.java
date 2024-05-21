@@ -52,7 +52,7 @@ public class ProductoControllerDao implements ProductoInterfaseDao{
 	
 	public String editarProducto(Productos cli) throws SQLException {
 		log.warn("nuevo cliente : " + cli );
-		String[] parameters = { cli.getPRO_NOMBRES(),""+cli.getPRO_DESCRIPCION(),cli.getPRO_OBSERVACION()
+		String[] parameters = { ""+cli.getPRO_ID(),cli.getPRO_NOMBRES(),""+cli.getPRO_DESCRIPCION(),cli.getPRO_OBSERVACION()
 				,""+cli.getPROD_VALOR(),""+cli.getPROD_CANTIDAD(),""+cli.getPRO_ESTADO()
 				};
 		ProcedureUtil.executeUpdateGestion("GL_PEditarProductos", parameters);

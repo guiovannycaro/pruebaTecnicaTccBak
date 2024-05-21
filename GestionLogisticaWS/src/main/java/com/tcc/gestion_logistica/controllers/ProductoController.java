@@ -106,7 +106,9 @@ public class ProductoController {
 			@RequestBody Productos cliente) {
 		try {
 			ProductoControllerDao servicioCliente = new ProductoControllerDao();
-
+			System.err.println(cliente.getPRO_ID() + " " +cliente.getPRO_NOMBRES() + " " + cliente.getPRO_DESCRIPCION() + " " + cliente.getPRO_OBSERVACION()
+			+ " " + " "+ cliente.getPROD_VALOR() + " " + cliente.getPROD_CANTIDAD() + " " +cliente.getPRO_ESTADO());
+			
 			return servicioCliente.editarProducto(cliente);
 
 			
