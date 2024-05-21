@@ -21,4 +21,17 @@ values('Cama','trasteo','embalada desde armenia','20000000','1','1');
 commit;
 
 
+insert into GL_TENVIO(ENV_ID,ENV_CLIE_ID,ENV_BOD_ID,ENV_FECHA_ENTREGA,ENV_FECHA_ENVIO,ENV_ORIG_CIU_ID,ENV_DEST_CIU_ID,ENV_ESTADO,ENV_REFERENCIA) 
+values(1,'1','1','11/01/2024','12/01/2024','1','1','1',230);
+commit;
+
+insert into GL_TDETALLEENVIOTEMP(ENVDT_ID,ENVDT_PROD_ID,ENVDT_CANTIDAD,ENVDT_PRECIO,ENVDT_TOTAL,ENVDT_IDP) 
+values(230,'1','2','20000000','40000000','1');
+commit;
+
+
+
+
+
+
 

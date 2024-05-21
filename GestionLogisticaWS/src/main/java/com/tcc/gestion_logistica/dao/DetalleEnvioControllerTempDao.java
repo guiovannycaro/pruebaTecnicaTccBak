@@ -10,6 +10,7 @@ import com.tcc.gestion_logistica.interfaces.DeralleEnvioTempinterfaceDao;
 import com.tcc.gestion_logistica.model.DatosEnvioD;
 import com.tcc.gestion_logistica.model.DetalleEnvioTemp;
 import com.tcc.gestion_logistica.model.Productos;
+import com.tcc.gestion_logistica.model.Usuarios;
 import com.tcc.gestion_logistica.util.ProcedureUtil;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -79,6 +80,7 @@ System.err.println("viene front " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV
 			String[] parameters = { ""+cli.getENVDT_PROD_ID() };
 			ProcedureUtil.executeSelectGestion("GL_PBuscarDetalleEnvioTempProducto", parameters, resultSet -> {
 				while (resultSet.next()) {
+					
 					datos.setENVDT_PROD_ID(resultSet.getString(1));
 					datos.setENVDT_CANTIDAD(resultSet.getString(2));	
 					datos.setENVDT_PRECIO(resultSet.getString(3));		
@@ -93,10 +95,11 @@ System.err.println("viene front " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV
 	
 	 public List<DetalleEnvioTemp> buscarDetalleEnvioTempXId(int cli) throws SQLException {
 			ArrayList<DetalleEnvioTemp> listadetallee = new ArrayList<>();
-		 DetalleEnvioTemp datos = new DetalleEnvioTemp();
+		
 			String[] parameters = { ""+cli };
 			ProcedureUtil.executeSelectGestion("GL_PBuscarDetalleEnvioTempId", parameters, resultSet -> {
 				while (resultSet.next()) {
+					 DetalleEnvioTemp datos = new DetalleEnvioTemp();
 					datos.setENVDT_PROD_ID(resultSet.getString(1));
 					datos.setENVDT_CANTIDAD(resultSet.getString(2));	
 					datos.setENVDT_PRECIO(resultSet.getString(3));		
@@ -108,6 +111,8 @@ System.err.println("viene front " + " "+ cli.getDATENV_ID() + " " +cli.getDATENV
 			});
 			return listadetallee;
 		}
+	 
+
 
 	
 
