@@ -47,7 +47,7 @@ public class ProductoController {
 		}
 	}
 
-	@PostMapping(value = "/buscarProductoById")
+	@GetMapping(value = "/buscarProductosById")
 	@ApiOperation(value = "Consulta Producto por id", response = Productos.class, notes = "Obtiene todos Los datos por id ")
 	@ApiResponses({
 		@ApiResponse(code = 200, message = "La consulta se Ejecuto de manera correcta", response = Productos.class),
@@ -80,6 +80,11 @@ public class ProductoController {
 			@RequestBody Productos cliente) {
 		try {
 			ProductoControllerDao servicioCliente = new ProductoControllerDao();
+			
+			System.err.println(cliente.getPRO_NOMBRES() + " " + cliente.getPRO_DESCRIPCION() + " " + cliente.getPRO_OBSERVACION()
+			+ " " + " "+ cliente.getPROD_VALOR() + " " + cliente.getPROD_CANTIDAD() + " " +cliente.getPRO_ESTADO());
+			
+			
 			return servicioCliente.crearProducto(cliente);
 		} catch (Exception e) {
 			log.error(ExceptionUtil.format(e));
@@ -111,7 +116,7 @@ public class ProductoController {
 		}
 	}
 
-	@PostMapping(value = "/eliminarProductos")
+	@GetMapping(value = "/eliminarProductos")
 	@ApiOperation(value = "Consulta eliminar Productos", response =Productos.class, notes = "elimina un registro ")
 	@ApiResponses({
 		@ApiResponse(code = 200, message = "La consulta se Ejecuto de manera correcta", response = Productos.class),
